@@ -1,10 +1,10 @@
 SPARK_HOME := /usr/lib/spark
 SPARK_CONF_DIR := /etc/spark/conf
-SPARK_CONF_DEFAULTS := $(SPARK_CONF_DIR)/spark-defaults.conf
+export SPARK_HOME SPARK_CONF_DIR
 
+SPARK_CONF_DEFAULTS := $(SPARK_CONF_DIR)/spark-defaults.conf
 export SPARK_CONF_DEFAULTS
 # SPARK_CONF_DEFAULTS is used by AmmoniteSparkSession
-export SPARK_HOME SPARK_CONF_DIR
 
 PATH := $(shell pwd)/bin:${PATH}
 export PATH
@@ -13,7 +13,7 @@ export PATH
 test:
 	source $(SPARK_CONF_DIR)/spark-env.sh && ./runner.sh ammSparkSql.sc
 
-## spin up a ammonite shell
+## spin up an ammonite shell
 shell:
 	source $(SPARK_CONF_DIR)/spark-env.sh && amm --predef predef.sc
 
