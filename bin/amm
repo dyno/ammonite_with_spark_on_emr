@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# http://ammonite.io/#Ammonite-REPL
+scala_version=2.11.12
+amm_version=1.2.1
+
+java -Xmx2048m -XX:+UseG1GC $JAVA_OPTS \
+        -cp "$(coursier fetch -p com.lihaoyi:ammonite_${scala_version}:${amm_version}+)" \
+	ammonite.Main $@
