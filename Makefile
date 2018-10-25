@@ -1,6 +1,6 @@
 SPARK_HOME := /usr/lib/spark
 SPARK_CONF_DIR := /etc/spark/conf
-SPARK_CONF_DEFAULTS=$(SPARK_CONF_DIR)/spark-defaults.conf
+SPARK_CONF_DEFAULTS := $(SPARK_CONF_DIR)/spark-defaults.conf
 
 export SPARK_CONF_DEFAULTS
 # SPARK_CONF_DEFAULTS is used by AmmoniteSparkSession
