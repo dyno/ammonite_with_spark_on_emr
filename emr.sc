@@ -23,7 +23,7 @@ def loadEmrJars() = {
                       "/usr/share/aws/emr/emrfs/conf")
 
   libDirs.foreach { dir =>
-    ls.rec ! Path(dir) |? { _.segments.last.endsWith(".jar") } |! { interp.load.cp(_) }
+    ls.rec ! Path(dir) |? { _.segments.toSeq.last.endsWith(".jar") } |! { interp.load.cp(_) }
   }
   (awsLibs ++ confDirs).foreach { cp =>
     interp.load.cp(Path(cp))
